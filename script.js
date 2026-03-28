@@ -87,7 +87,7 @@ function heavyConfetti() {
 }
 let isSelecting = false;
 
-let time1 = 30;
+let time1 = 60;
 let time2 = 20;
 let gridSize = 15;
 let timer1;
@@ -181,7 +181,7 @@ function startGame() {
   // Reset timer
 clearInterval(timer1);
 
-time1 = 30;
+time1 = 60;
 document.getElementById("timer1").innerText = time1;
 
 // Start timer again
@@ -292,7 +292,7 @@ function checkName() {
   clearInterval(hintTimer);
   if (guess === child.name) {
     
-    totalTime += (30 - time1);
+    totalTime += (60 - time1);
     lightConfetti();
     startLevel2();
   } else {
@@ -415,7 +415,7 @@ function restartGame() {
   clearInterval(timer2);
 
   // Reset time values
-  time1 = 30;
+  time1 = 60;
   time2 = 20;
 
   document.getElementById("timer1").innerText = time1;
