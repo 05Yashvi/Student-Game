@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Know Your Child Challenge</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<div id="musicBtn" onclick="toggleMusic()">
+  🔊
+</div>
+<body>
+ <div class="bubbles">
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+</div> 
+<input id="parentName" placeholder="Enter Parent Name" />
+<input id="childName" placeholder="Enter Child Name" />
+<button onclick="startGame()">Start Game</button>
+<h1>🎮 Search For Your Child</h1>
+
+
+<div id="level1">
+  <h2>Level 1: Find Name</h2>
+  <p>Time: <span id="timer1">30</span>s</p>
+  <div id="grid"></div>
+  <button onclick="checkName()" id="submitBtn" disabled>Submit</button>
+</div>
+
+<div id="level2" style="display:none;">
+  <h2>Level 2: Find Eyes</h2>
+  <p>Time: <span id="timer2">20</span>s</p>
+  <div id="eyes"></div>
+</div>
+
+
+
+<div id="result" style="display:none;"></div>
+<img src="https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif" class="cartoon">
+<h2>🏆 Leaderboard</h2>
+<div class="leaderboard-container">
+  <ul id="leaderboard"></ul>
+  <button onclick="clearLeaderboard()">🧹 Clear Leaderboard</button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
