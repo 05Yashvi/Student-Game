@@ -23,6 +23,22 @@ document.addEventListener("DOMContentLoaded", () => {
   btn.classList.add("music-on"); // default ON look
 });
 
+
+let hintTimer;
+function startHintTimer(answer) {
+  clearTimeout(hintTimer);
+
+  hintTimer = setTimeout(() => {
+    showHint(answer);
+  }, 40000); // 40 seconds
+}
+
+
+function showHint(answer) {
+  const firstLetter = answer.charAt(0);
+  document.getElementById("hintBox").innerHTML =
+    `Hint: Starts with <b>${firstLetter}</b>`;
+}
 // 🎉 Light confetti (Level 1)
 function lightConfetti() {
   confetti({
@@ -127,6 +143,7 @@ const students = {
 
 let child = null;
 function startGame() {
+  document.getElementById("hintBox").innerHTML = "";
   clickSound.currentTime = 0;
   playSound(clickSound);
   let inputName = document.getElementById("childName").value.toUpperCase();
@@ -157,6 +174,7 @@ timer1 = setInterval(() => {
   document.getElementById("timer1").innerText = time1;
 
   if (time1 <= 0) {
+    clearTimeout(hintTimer);
     clearInterval(timer1);
     alert("Time's up!");
   }
@@ -205,6 +223,7 @@ updateLeaderboard();
 
 // 🔤 Generate Grid
 function generateGrid() {
+  startHintTimer(child.name);
   const grid = document.getElementById("grid");
   const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -254,8 +273,9 @@ function checkName() {
   }
  
   let guess = selected.map(cell => cell.innerText).join("");
-
+  clearTimeout(hintTimer);
   if (guess === child.name) {
+    
     totalTime += (30 - time1);
     lightConfetti();
     startLevel2();
