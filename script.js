@@ -64,7 +64,7 @@ let gridSize = 15;
 let timer1;
 let timer2;
 const students = {
-  "AAHAN_2": "Aahan_2.png",
+  "AAHAN2": "Aahan2.png",
   "AAHAN": "Aahan.png",
   "AARAVUSMANI": "Aarav Usmani.png",
   "AARNA": "Aarna.png",
@@ -85,7 +85,7 @@ const students = {
   "DEV": "Dev.png",
   "DHRUV": "Dhruv.png",
   "DIVYANSH": "Divyansh.png",
-  "HAMZA_2": "Hamza_2.png",
+  "HAMZA2": "Hamza2.png",
   "HAMZA": "Hamza.png",
   "HARSHIT": "Harshit.png",
   "ISHIKA": "Ishika.png",
