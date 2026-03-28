@@ -156,7 +156,10 @@ const students = {
 
 let child = null;
 function startGame() {
+  
+  document.getElementById("hintTimerBox").innerText = "Hint in: 40";
   document.getElementById("hintBox").innerHTML = "";
+
   clickSound.currentTime = 0;
   playSound(clickSound);
   let inputName = document.getElementById("childName").value.toUpperCase();
