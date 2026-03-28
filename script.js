@@ -26,11 +26,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 let hintTimer;
 function startHintTimer(answer) {
-  clearTimeout(hintTimer);
+  clearInterval(hintTimer);
 
-  hintTimer = setTimeout(() => {
-    showHint(answer);
-  }, 40000); // 40 seconds
+  let timeLeft = 40;
+  const hintDisplay = document.getElementById("hintTimerBox");
+
+  hintDisplay.innerText = "Hint in: " + timeLeft;
+
+  let countdown = setInterval(() => {
+    timeLeft--;
+    hintDisplay.innerText = "Hint in: " + timeLeft;
+
+    if (timeLeft <= 0) {
+      clearInterval(countdown);
+      showHint(answer);
+    }
+  }, 1000);
+
+  hintTimer = countdown; // important change
 }
 
 
@@ -174,7 +187,7 @@ timer1 = setInterval(() => {
   document.getElementById("timer1").innerText = time1;
 
   if (time1 <= 0) {
-    clearTimeout(hintTimer);
+    clearInterval(hintTimer);
     clearInterval(timer1);
     alert("Time's up!");
   }
@@ -273,7 +286,7 @@ function checkName() {
   }
  
   let guess = selected.map(cell => cell.innerText).join("");
-  clearTimeout(hintTimer);
+  clearInterval(hintTimer);
   if (guess === child.name) {
     
     totalTime += (30 - time1);
